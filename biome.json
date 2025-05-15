@@ -1,0 +1,142 @@
+{
+  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+  "files": {
+    "ignoreUnknown": false,
+    "ignore": ["bun.lock", "node_modules", ".next", ".vercel"]
+  },
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "defaultBranch": "main",
+    "useIgnoreFile": true
+  },
+  "formatter": {
+    "enabled": true,
+    "formatWithErrors": false,
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineEnding": "lf",
+    "lineWidth": 80,
+    "attributePosition": "auto"
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true,
+      "a11y": {
+        "useHtmlLang": "warn",
+        "noHeaderScope": "warn",
+        "useValidAriaRole": {
+          "level": "warn",
+          "options": {
+            "ignoreNonDom": false,
+            "allowInvalidRoles": ["none", "text"]
+          }
+        },
+        "useSemanticElements": "off",
+        "noSvgWithoutTitle": "off",
+        "useMediaCaption": "off",
+        "noAutofocus": "off",
+        "noBlankTarget": "off",
+        "useFocusableInteractive": "off",
+        "useAriaPropsForRole": "off",
+        "useKeyWithClickEvents": "off"
+      },
+      "complexity": {
+        "noUselessStringConcat": "warn",
+        "noForEach": "off",
+        "noUselessSwitchCase": "off",
+        "noUselessThisAlias": "off"
+      },
+      "correctness": {
+        "noUnusedImports": "warn",
+        "useArrayLiterals": "warn",
+        "noNewSymbol": "warn",
+        "useJsxKeyInIterable": "off",
+        "useExhaustiveDependencies": "off",
+        "noUnnecessaryContinue": "off"
+      },
+      "security": {
+        "noDangerouslySetInnerHtml": "off"
+      },
+      "style": {
+        "useFragmentSyntax": "warn",
+        "noYodaExpression": "warn",
+        "useDefaultParameterLast": "warn",
+        "useExponentiationOperator": "off",
+        "noUnusedTemplateLiteral": "off",
+        "noUselessElse": "off",
+        "noNonNullAssertion": "off"
+      },
+      "suspicious": {
+        "noExplicitAny": "off",
+        "noArrayIndexKey": "info"
+      },
+      "nursery": {
+        "noStaticElementInteractions": "warn",
+        "noHeadImportInDocument": "warn",
+        "noDocumentImportInPage": "warn",
+        "noDuplicateElseIf": "warn",
+        "noIrregularWhitespace": "warn",
+        "useValidAutocomplete": "warn"
+      }
+    }
+  },
+  "javascript": {
+    "jsxRuntime": "reactClassic",
+    "formatter": {
+      "enabled": true,
+      "jsxQuoteStyle": "double",
+      "quoteProperties": "asNeeded",
+      "trailingCommas": "none",
+      "semicolons": "asNeeded",
+      "arrowParentheses": "always",
+      "bracketSpacing": true,
+      "bracketSameLine": false,
+      "quoteStyle": "double",
+      "attributePosition": "auto"
+    }
+  },
+  "json": {
+    "formatter": {
+      "enabled": true,
+      "trailingCommas": "none"
+    },
+    "parser": {
+      "allowComments": true,
+      "allowTrailingCommas": false
+    }
+  },
+  "css": {
+    "parser": {
+      "cssModules": true
+    },
+    "assists": {
+      "enabled": true
+    },
+    "formatter": {
+      "indentStyle": "space",
+      "indentWidth": 2,
+      "enabled": true,
+      "quoteStyle": "double"
+    },
+    "linter": {
+      "enabled": true
+    }
+  },
+  "organizeImports": {
+    "enabled": true
+  },
+  "overrides": [
+    {
+      "include": ["playwright/**"],
+      "linter": {
+        "rules": {
+          "correctness": {
+            "noEmptyPattern": "off"
+          }
+        }
+      }
+    }
+  ]
+}
