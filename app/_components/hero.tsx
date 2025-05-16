@@ -7,12 +7,12 @@ import Image from "next/image";
 const Hero = ()=>{
 
     return (
-        <section>
+        <section className="section-gap">
         <div className="container grid grid-cols-1 md:grid-cols-2 ">
             <div className="md:py-12">
                 <h1 className="text-4xl font-semibold "> Slice into Happiness</h1>
                 <p className="text-accent my-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident dolorem possimus et ex consequuntur. Debitis vitae iusto dolorem recusandae quae.</p>
-                <div className="space-x-2">
+                <div className="flex space-x-2">
                     <Link href={`/${Routes.MENU}`}
                           className={ `${buttonVariants({
                             size:"lg"
@@ -29,7 +29,7 @@ const Hero = ()=>{
                             size:"lg",
                             variant:"link"
 
-                          })}  space-x-2 !px-4 !rounded-full uppercase
+                          })}  space-x-2 !px-4 !rounded-full uppercase !text-foreground
                            `}
                     >
                        Learn More
