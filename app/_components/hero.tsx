@@ -42,7 +42,7 @@ const Hero = ()=>{
 
 
             <div className="relative hidden md:block">
-                <Image src='/assets/pizza.png' alt="pizza" fill loading="eager" priority className="object-contain"/>
+                <Image src='https://png.pngtree.com/png-clipart/20240608/original/pngtree-a-stack-of-pizza-slices-topped-with-sauce-and-cheese-png-image_15273205.png' alt="pizza" fill loading="eager" priority className="object-contain"/>
             </div>
         </div>
         </section>

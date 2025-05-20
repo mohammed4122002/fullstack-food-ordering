@@ -1,9 +1,23 @@
-import React from 'react'
+import React from "react";
+import MenuItem from "./MenuItem";
+import type { ProductWithRelations } from "@/types/product";
 
-const Menu= () => {
+
+const Menu = ({
+  items,
+}: {
+  items: ProductWithRelations[];
+}) => {
   return (
-    <div>Menu</div>
-  )
-}
+    <ul className="grid grid-cols-1 sm:grid-cols-3  gap-4">
+      {items.map((item) => (
+        <MenuItem
+          key={item.id}
+          item={item}
+          />
+      ))}
+    </ul>
+  );
+};
 
-export default Menu
+export default Menu;
