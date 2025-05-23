@@ -1,18 +1,14 @@
 import MainHeading from '@/components/main-heading'
 import Menu from '@/components/menu'
-import { db } from "../../lib/prisma"
+
 
 import React from 'react'
 
+import { getBestSellers } from '@/server/db/Products'
+
 const  BestSellers =async () => {
  
-  const bestSellers = await db.product.findMany({
-   
-    include: {
-      extras: true,
-      sizes: true,
-    },
-  })
+ const bestSellers = await  await getBestSellers(3)
   
   return (
     <section>

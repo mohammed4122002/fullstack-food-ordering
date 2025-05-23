@@ -9,14 +9,14 @@ const Menu = ({
   items: ProductWithRelations[];
 }) => {
   return (
-    <ul className="grid grid-cols-1 sm:grid-cols-3  gap-4">
+   items.length > 0 ? ( <ul className="grid grid-cols-1 sm:grid-cols-3  gap-4">
       {items.map((item) => (
         <MenuItem
           key={item.id}
           item={item}
           />
       ))}
-    </ul>
+    </ul>) : <p className="text-accent text-center" >No Products found</p>
   );
 };
 

@@ -1,9 +1,14 @@
 import { db } from "@/lib/prisma";
 import BestSellers from "./_components/BestSellers";
 import Hero from "./_components/hero";
+import About from "@/components/about";
+import Contact from "@/components/contact";
 ;
 
 export default async function Home() {
+ /* await db.product.deleteMany()
+  await db.size.deleteMany()
+  await db.extra.deleteMany()*/
 /*
 const size =  await db.size.createMany({
   data: [
@@ -29,6 +34,8 @@ const extra =  await db.extra.createMany({
     <main className="" > 
      <Hero/>
        <BestSellers />
+       <About/>
+       <Contact/>
     </main>
   );
 }
