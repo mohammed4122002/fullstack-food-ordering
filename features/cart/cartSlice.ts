@@ -1,5 +1,5 @@
 import type { RootState } from "@/redux/store";
-import type { Size } from "@prisma/client";
+import type { Extra, Size } from "@prisma/client";
 import { createSlice } from "@reduxjs/toolkit";
 export type CartItem = {
   name: string;
@@ -8,6 +8,7 @@ export type CartItem = {
   basePrice: number;
   quantity?: number;
   size?: Size;
+  extras : Extra[]
 };
 type CartState = {
   item: CartItem[];
@@ -23,4 +24,4 @@ const cartSlice = createSlice({
 
 export const {} = cartSlice.actions;
 export default cartSlice.reducer;
-export const selectCartItem = (state: RootState) => state.cart.item;
+export const selectCartItems = (state: RootState) => state.cart.item;
