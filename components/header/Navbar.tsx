@@ -6,16 +6,33 @@ import React, { useState } from "react";
 import Link from "../Link";
 import { Button, buttonVariants } from "../ui/button";
 import { Menu, XIcon } from "lucide-react";
+import { useParams, usePathname } from "next/navigation";
 
-const Navbar = () => {
+const Navbar = ({navbar} : {navbar: {
+    home: string,
+    about: string,
+    menu: string,
+    contact: string,
+    login: string,
+    register: string,
+    signOut: string,
+    profile: string,
+    admin: string,
+}}) => {
+ const params = useParams();
+const locale = params.locale as string;
+const pathname = usePathname();
+
+
+  
   const [openMenu, setOpenMenu] = useState(false);
   const links = [
-    { id: crypto.randomUUID(), titel: "Menu", href: Routes.MENU },
-    { id: crypto.randomUUID(), titel: "About", href: Routes.ABOUT },
-    { id: crypto.randomUUID(), titel: "Contact", href: Routes.CONTACT },
+    { id: crypto.randomUUID(), titel: navbar.menu, href: Routes.MENU },
+    { id: crypto.randomUUID(), titel: navbar.about, href: Routes.ABOUT },
+    { id: crypto.randomUUID(), titel: navbar.contact, href: Routes.CONTACT },
     {
       id: crypto.randomUUID(),
-      titel: "Login",
+      titel: navbar.login,
       href: `${Routes.AUTH}/${Pages.LOGIN}`,
     },
   ];
@@ -38,12 +55,12 @@ const Navbar = () => {
         {links.map((link) => (
           <li key={link.id}>
             <Link
-              href={`/${link.href}`}
+              href={`/${locale}/${link.href}`}
               className={`${
                 link.href === `${Routes.AUTH}/${Pages.LOGIN}`
                   ? `${buttonVariants({ size: "lg" })} !px-8 !rounded-full`
                   : "text-accent hover:text-primary transition-all duration-200"
-              } font-semibold`}
+              } font-semibold ${pathname === `/${locale}/${link.href}` ? "text-primary" : ""}`}
             >
               {link.titel}
             </Link>

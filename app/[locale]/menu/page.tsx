@@ -1,23 +1,9 @@
 
 import { getProductsByCategory } from '@/server/db/Products'
 import React from 'react'
-import {db} from '@/lib/prisma'
 import Menu from '@/components/menu'
 const page = async() => {
-     /* await db.category.createMany({
-        data: [
-          {
-            name: 'Classic Pizzas',
-           
-          },
-          {
-            name: 'Specialty Pizzas',
-         
-          },
-        
-        ],
-      })
-        */
+  
     const categorites = await getProductsByCategory()
 
   return (
